@@ -1,0 +1,307 @@
+/* Slider Container */
+.jl_slider_area {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Slick Slider Core Styles */
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+/* Slide Item */
+.jl_slide_item {
+    position: relative;
+    height: 40rem;
+}
+
+/* Slide Inner */
+.slide_inner {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Fallback color */
+}
+
+.slide_inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Darker overlay for better text contrast */
+    z-index: 1;
+}
+
+/* Slide Content */
+.slide_content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Typography */
+.txbdstitle.tsmall {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.txbdstitle.sttwo {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out 0.2s;
+}
+
+.slide_content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out 0.4s;
+}
+
+/* Button Styling */
+.witr_btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d4af37; /* Gold color to match jewelry theme */
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out 0.6s;
+}
+
+.witr_btn:hover {
+    background: transparent;
+    color: #d4af37;
+    border-color: #d4af37;
+    transform: translateY(0);
+}
+
+/* Animation for Active Slide */
+.slick-slide.slick-active .slide_animate .txbdstitle.tsmall,
+.slick-slide.slick-active .slide_animate .txbdstitle.sttwo,
+.slick-slide.slick-active .slide_animate p,
+.slick-slide.slick-active .slide_animate .witr_btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slick Arrows */
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 0;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.slick-prev {
+    left: 30px;
+}
+
+.slick-next {
+    right: 30px;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: "FontAwesome"; /* Use FontAwesome for icons */
+    font-size: 24px;
+    line-height: 50px;
+    color: #fff;
+    display: block;
+}
+
+.slick-prev:before {
+    content: "\f053"; /* FontAwesome left arrow */
+}
+
+.slick-next:before {
+    content: "\f054"; /* FontAwesome right arrow */
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Slick Dots */
+.slick-dots {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+    background: #d4af37; /* Gold color for active dot */
+    width: 16px;
+    height: 16px;
+}
+
+/* Accessibility: Focus Styles */
+.slick-prev:focus, .slick-next:focus,
+.slick-dots li button:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .jl_slide_item {
+        height: 500px;
+    }
+
+    .txbdstitle.sttwo {
+        font-size: 40px;
+    }
+
+    .slide_content p {
+        font-size: 16px;
+    }
+
+    .witr_btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .slick-prev, .slick-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slick-prev:before, .slick-next:before {
+        font-size: 20px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .jl_slide_item {
+        height: 400px;
+    }
+
+    .txbdstitle.sttwo {
+        font-size: 30px;
+    }
+
+    .slide_content p {
+        font-size: 14px;
+    }
+
+    .witr_btn {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
+
+    .slick-prev, .slick-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .slick-prev {
+        left: 15px;
+    }
+
+    .slick-next {
+        right: 15px;
+    }
+
+    .slick-dots {
+        bottom: 20px;
+    }
+}
